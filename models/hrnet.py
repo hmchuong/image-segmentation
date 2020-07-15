@@ -567,4 +567,3 @@ class HRNet(nn.Module):
         x = self.last_layer(features)
         x = F.upsample(x, size=(H, W), mode='bilinear')
         return x
-        return x
