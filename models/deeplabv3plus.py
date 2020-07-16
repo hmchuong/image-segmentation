@@ -108,11 +108,11 @@ class Decoder(nn.Module):
 
 
 class Deeplab_v3plus(nn.Module):
-    def __init__(self, cfg, *args, **kwargs):
+    def __init__(self, n_classes, *args, **kwargs):
         super(Deeplab_v3plus, self).__init__()
         self.backbone = Resnet101(stride=16)
-        self.aspp = ASPP(in_chan=2048, out_chan=256, with_gp=cfg.aspp_global_feature)
-        self.decoder = Decoder(cfg.n_classes, low_chan=256)
+        self.aspp = ASPP(in_chan=2048, out_chan=256, with_gp=False)
+        self.decoder = Decoder(n_classes, low_chan=256)
         #  self.backbone = Darknet53(stride=16)
         #  self.aspp = ASPP(in_chan=1024, out_chan=256, with_gp=False)
         #  self.decoder = Decoder(cfg.n_classes, low_chan=128)
