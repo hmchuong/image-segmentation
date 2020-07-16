@@ -18,7 +18,7 @@ def process_image(image_path, using_torchvision=False):
   else:
     return _normal_process(image_path)
   
-def _normal_process(image_path)
+def _normal_process(image_path):
   global mean, std
   origin_image = cv2.imread(image_path, cv2.IMREAD_COLOR)
   image = origin_image.astype(np.float32)[:, :, ::-1]
